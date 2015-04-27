@@ -174,3 +174,7 @@ The calculations you have been doing thus far is based on the PBE GGA
 functional. Redo Q7 and Q8, but now use the `Si.pz-n-kjpaw_psl.0.1.UPF` (LDA)
 pseudopotential instead. Comment on any differences in the predicted
 equilibrium lattice constant.
+
+# Q10: Calculating the stiffness tensor
+
+Variation of the volume as a parameter and calculating the bulk modulus from the second derivative of the Energy is considered as a computational experiment. Calculate all the components of the stiffness tensor for Silicon using the least number of such experiments?
