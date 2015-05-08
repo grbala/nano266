@@ -1,5 +1,5 @@
 LaTeX input:        mmd-mavrldoc-header
-Title:              NANO266 Lab 3 - Bulk properties from Quantum Mechanics
+Title:              NANO266 Lab 3 - Phase Equilibria from first principles calculations
 Base Header Level:  2
 LaTeX Mode:         mavrldoc
 LaTeX input:        mmd-mavrldoc-begin-doc
@@ -8,7 +8,7 @@ LaTeX footer:       mmd-mavrldoc-footer
 
 # Introduction
 
-In this lab, we will look at obtaining bulk properties from quantum mechanics.
+In this lab, we will look at predicting phase equilibrium from quantum mechanics.
 We will still be using QuantumEspresso. We will also introduce you to the
 basics of running calculations on supercomputing resources, e.g., how to submit
 jobs, handle queues, etc.
@@ -66,7 +66,8 @@ energies to within 1 meV.
 1. Calculate the ground state energy of Fe in both the bcc and hcp structure.
    Two template files are provided for bcc and hcp. A run_pw.py file is also
    provided that works for bcc, but you need to modify it as appropriate to
-   work for hcp.
+   work for hcp. In the case of hcp, try varying ${alat}$ between $4.75-4.85$ and $c/a$
+   ratio between $1.7-1.73$.
 2. Varying the volume of the cell calculate when the hcp structure becomes more
    favorable than the bcc one. Note that it is important when comparing
    energies that the $k$-point samplings for both systems are comparable and
@@ -95,8 +96,7 @@ For this question, it is important that you note several differences in the
 
 * The `calculation` parameter is set to `relax`, which means we are allowing
   atoms to move.
-* There is an addition IONS section with `ion_dynamics = 'bfgs'`, which chooses
-  the quasi-Newton minimization method.
+* There is an addition IONS section with `ion_dynamics = 'bfgs'` and a CELL section with `cell_dynamics = 'bfgs'`, which chooses the quasi-Newton minimization method.
 * At the end of the atomic positions for Pb and Ti, there are three additional
   0s. These indicate that the Pb and Ti are not allowed to move in any of the
   coordinates. Conversely, no such restriction is placed on the O atoms, which
@@ -105,7 +105,7 @@ For this question, it is important that you note several differences in the
 Please answer the following questions.
 
 1. Calculate and plot the energy of cubic $\mbox{PbTiO}_3$ as a function of 
-   lattice parameter. Use a 4 $\times$ 4 $\times$ 4 $k$-point mesh with a 
+   lattice parameter. Use a 6 $\times$ 6 $\times$ 6 $k$-point mesh with a 
    1, 1, 1 offset. Sample lattice parameters with a sufficiently fine grid to 
    get a reliable value for the equilibrium lattice constant. To get an idea 
    where to begin, note that the room-temperature experimental lattice constant 
